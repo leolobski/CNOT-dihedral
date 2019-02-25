@@ -1,0 +1,129 @@
+\documentclass{beamer}
+
+% \usepackage{beamerthemesplit} // Activate for custom appearance
+
+\usepackage{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage[compatibility=false]{caption}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{ragged2e}
+%\usepackage{freetikz}
+\usepackage{comment}
+\usepackage{mathtools}
+
+\usepackage{color}
+
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm]
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+\usepackage{csquotes}
+
+\usepackage[T1]{fontenc}
+
+%\newtheorem{theorem}[equation]{Theorem}
+\newtheorem{claim}[equation]{Claim}
+\newtheorem{proposition}[equation]{Proposition}
+%\newtheorem{lemma}[equation]{Lemma}
+%\newtheorem{corollary}[equation]{Corollary}
+\newtheorem{conjecture}[equation]{Conjecture}
+%\newtheorem{problem}[equation]{Problem}
+\newtheorem{question}[equation]{Question}
+\newtheorem{construction}[equation]{Construction}
+
+\theoremstyle{definition}
+%\newtheorem{example}[equation]{Example}
+%\newtheorem{definition}[equation]{Definition}
+
+\newtheorem{remark}[equation]{Remark}
+
+\newcommand{\changefont}[3]{\fontfamily{#1} \fontseries{#2} \fontshape{#3} \selectfont}
+
+\newcommand{\op}[1]{\ensuremath \mathcal{O}(#1)} %cat of open sets of a topo space
+\newcommand{\Set}{\ensuremath \mathbf{Set}}
+\newcommand{\Top}{\ensuremath \mathbf{Top}}
+\newcommand{\Bund}{\ensuremath \mathbf{Bund}}
+\newcommand{\PSh}{\ensuremath \mathbf{PSh}}
+\newcommand{\Sh}{\ensuremath \mathbf{Sh}}
+\newcommand{\Et}{\ensuremath \mathbf{Et}}
+\newcommand{\cat}[1]{\ensuremath \mathcal{#1}}
+\newcommand{\R}{\ensuremath \mathbb R}
+\newcommand{\N}{\ensuremath \mathbb N}
+\newcommand{\id}{\mathbin{\textrm{\normalfont id}}} % non-italic identity in math mode
+
+\newcommand{\monoid}[1]
+{
+	\resizebox{#1}{!}{
+    \begin{tikzpicture}
+		\node[dot,fill=black] (d0) at (3.5, 5.5) {};
+		\draw (d0.center) to[out=180, in=90] (3, 4.5);
+		\draw (d0.center) to[out=0, in=90] (4, 4.5);
+		\draw (d0.center) to[out=90, in=-90] (3.5, 6.5);
+    \end{tikzpicture}
+	}
+}
+
+\newcommand{\unit}[1]
+{
+	\resizebox{#1}{!}{
+    \begin{tikzpicture}
+		\node[dot,fill=black] (d0) at (4, 4) {};
+		\draw (d0.center) to[out=90, in=-90] (4, 5);
+    \end{tikzpicture}
+	}
+}
+
+\newcommand{\monoidW}[1]
+{
+	\resizebox{#1}{!}{
+    \begin{tikzpicture}
+		\node[dot,fill=white] (d0) at (3.5, 5.5) {};
+		\draw (d0.center) to[out=180, in=90] (3, 4.5);
+		\draw (d0.center) to[out=0, in=90] (4, 4.5);
+		\draw (d0.center) to[out=90, in=-90] (3.5, 6.5);
+    \end{tikzpicture}
+	}
+}
+
+\newcommand{\unitW}[1]
+{
+	\resizebox{#1}{!}{
+    \begin{tikzpicture}
+		\node[dot,fill=white] (d0) at (4, 4) {};
+		\draw (d0.center) to[out=90, in=-90] (4, 5);
+    \end{tikzpicture}
+	}
+}
+
+\newcommand{\comonoid}[1]{\rotatebox[origin=c]{180}{\monoidW{#1}}}
+\newcommand{\counit}[1]{\rotatebox[origin=c]{180}{\unitW{#1}}}
+
+
+\begin{document}
+
+\setbeamertemplate{navigation symbols}{}
+
+\changefont{cmss}{m}{n}
+\title{}
+\author{}
+\date{}
+\frame{\titlepage}
+
+
+\frame{\frametitle{Outline}\tableofcontents}
+
+\section{Quantum circuits}
+\section{Clifford+T and universal gate sets}
+\section{CNOT-dihedral gates}
+\section{Rules for CNOT-dihedral gates}
+\section{Normal forms}
+\section{Open questions}
+
+
+\end{document}
+
