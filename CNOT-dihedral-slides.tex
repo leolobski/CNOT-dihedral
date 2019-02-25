@@ -26,6 +26,8 @@
 
 \usepackage[T1]{fontenc}
 
+\graphicspath{ {images/} }
+
 %\newtheorem{theorem}[equation]{Theorem}
 \newtheorem{claim}[equation]{Claim}
 \newtheorem{proposition}[equation]{Proposition}
@@ -119,8 +121,70 @@
 
 \section{Quantum circuits}
 \section{Clifford+T and universal gate sets}
+
 \section{CNOT-dihedral gates}
+
+\begin{frame}{CNOT-dihedral gates}
+
+In the paper, the CNOT-dihedral operators are defined as follows.
+\begin{figure}
+\includegraphics[width=10cm]{gates}
+\centering
+\caption{Amy, Chen and Ross, p.~86.}
+\end{figure}
+\begin{itemize}
+\item The gates $X$, $CNOT$ and $SWAP$ are called {\em affine}.
+\item The gates $\omega$, $T$, $U$ and $V$ are called {\em diagonal}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{CNOT-dihedral gates in ZX}
+
+The gates can be expressed in the ZX-calculus.
+\begin{figure}
+\includegraphics[width=10cm]{gates-in-ZX}
+\centering
+\end{figure}
+\begin{figure}
+\includegraphics[width=10cm]{U-in-ZX}
+\centering
+\end{figure}
+\end{frame}
+
+\begin{frame}{CNOT-dihedral gates in ZX}
+\begin{figure}
+\includegraphics[width=11cm]{V-in-ZX}
+\centering
+\end{figure}
+\end{frame}
+
 \section{Rules for CNOT-dihedral gates}
+
+\begin{frame}{Rules for CNOT-dihedral gates}
+
+\begin{figure}
+\includegraphics[width=10cm]{relations}
+\centering
+\caption{Amy, Chen and Ross, p.~87.}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Derivation of R5 and R6 in ZX}
+
+\begin{figure}
+\includegraphics[width=10cm]{R5-R6}
+\centering
+\end{figure}
+\end{frame}
+
+\begin{frame}{Commutation rules}
+
+\begin{figure}
+\includegraphics[width=7cm]{commutation-rules}
+\centering
+\end{figure}
+\end{frame}
+
 \section{Normal forms}
 
 \section{Phase polynomials and uniqueness}
