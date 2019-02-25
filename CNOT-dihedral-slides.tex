@@ -109,8 +109,8 @@
 \setbeamertemplate{navigation symbols}{}
 
 \changefont{cmss}{m}{n}
-\title{}
-\author{}
+\title{A Finite Presentation of CNOT-dihedral Operators}
+\author{Matthew Amy, Jianxin Chen, Neil J. Ross}
 \date{}
 \frame{\titlepage}
 
@@ -122,6 +122,7 @@
 \section{CNOT-dihedral gates}
 \section{Rules for CNOT-dihedral gates}
 \section{Normal forms}
+
 \section{Phase polynomials and uniqueness}
 
 \begin{frame}{Phase polynomials}
@@ -136,6 +137,7 @@ $$ U^k \ket{x_1x_2} = \omega^{k(x_1\oplus x_2)}\ket{x_1x_2}$$
 $$ V^k \ket{x_1x_2x_3} = \omega^{k(x_1\oplus x_2 \oplus x_3)}\ket{x_1x_2x_3}$$
 Therefore for $D$ in normal form we have
 $$ p_D(x) = a_0 + \sum_i a_i x_i + \sum_{i<j}b_{ij} (x_i \oplus x_j) + \sum_{i<j<k}c_{ijk} (x_i \oplus x_j \oplus x_k)$$
+Where $a_i \in \mathbb{Z}_8$, $b_{ij} \in \mathbb{Z}_4$, $c_{ijk} \in \mathbb{Z}_2$ (from the bounds on $deg_X(D)$ for $X=T,U,V$ obtained in normal form).
 
 \end{frame}
 
@@ -148,12 +150,19 @@ To show there exists such a $y$ need a technical lemma: construct a multilinear 
 
 Do this by translating from mod $2$ to mod $8$:
 $$ x_i \oplus x_j = x_i + x_j -2x_ix_j $$
-$$ x_i \oplus x_j \oplus x_k = x_i + x_j + x_k -2x_ix_j \dots$$
+$$ x_i \oplus x_j \oplus x_k = x_i + x_j + x_k -2x_ix_j -2x_ix_k -2x_jx_k + 4x_ix_jx_k$$
 
-Then $p_D(x) - p_{D'}(x) \neq 0$ $\implies q(x) \neq 0$, we pick a non-zero term $d x_{i_1} \dots x_{i_k}$ in $q(x)$ then letting $y$ be the vector with $1$'s in $i_j$th positions and zero everywhere else we obtain $q(y) = d \neq 0$ and so $D\ket{y} \neq D' \ket{y}$.
+Then $p_D(x) - p_{D'}(x) \neq 0$ $\implies q(x) \neq 0$, because of the bounds on $a_i$, $b_{ij}$ and $c_{ijk}$. Pick a non-zero term $d x_{i_1} \dots x_{i_k}$ in $q(x)$ then letting $y$ be the vector with $1$'s in $i_j$th positions and zero everywhere else we obtain $q(y) = d \neq 0$ and so $D\ket{y} \neq D' \ket{y}$.
 \end{frame}
 
 \section{Open questions}
+\begin{frame}{Open questions}
+	\begin{itemize}
+		\item Interaction between ZX and CNOT-dihedral rules (rule 13?)
+		\item The paper doesn't contain an algorithm for normalizing CNOT-dihedral circuits, it uses the properties of the ambient symmetric monoidal structure non-constructively. What could be a rewrite system? Algebraic vs combinatorial description.
+		\item Complexity of CNOT-dihedral circuits.
+	\end{itemize}
+\end{frame}
 
 
 \end{document}
