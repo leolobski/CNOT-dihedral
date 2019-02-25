@@ -11,7 +11,7 @@
 \usepackage{ragged2e}
 %\usepackage{freetikz}
 \usepackage{comment}
-\usepackage{mathtools}
+\usepackage{mathtools, braket}
 
 \usepackage{color}
 
@@ -45,7 +45,7 @@
 \newcommand{\changefont}[3]{\fontfamily{#1} \fontseries{#2} \fontshape{#3} \selectfont}
 
 \newcommand{\op}[1]{\ensuremath \mathcal{O}(#1)} %cat of open sets of a topo space
-\newcommand{\Set}{\ensuremath \mathbf{Set}}
+%\newcommand{\Set}{\ensuremath \mathbf{Set}}
 \newcommand{\Top}{\ensuremath \mathbf{Top}}
 \newcommand{\Bund}{\ensuremath \mathbf{Bund}}
 \newcommand{\PSh}{\ensuremath \mathbf{PSh}}
@@ -122,8 +122,38 @@
 \section{CNOT-dihedral gates}
 \section{Rules for CNOT-dihedral gates}
 \section{Normal forms}
+\section{Phase polynomials and uniqueness}
+
+\begin{frame}{Phase polynomials}
+
+Action of a diagonal gate:
+$$ D \ket{x} = \omega^{p_D(x)}\ket{x}, \quad p_D: \mathbb{Z}_2^n \rightarrow \mathbb{Z}_8 ,$$
+$$ p_D(x) = \sum_{i=1}^k a_i g_i(x) .$$
+where $a_i \in \mathbb{Z}_8$ and $g_i:\mathbb{Z}_2^n \rightarrow \mathbb{Z}_2$ are terms on at most $n$ variables.
+$$ \omega^k \ket{x} = \omega^k \ket{x} $$
+$$ T^k \ket{x_1} = \omega^{kx_1}\ket{x_1}$$
+$$ U^k \ket{x_1x_2} = \omega^{k(x_1\oplus x_2)}\ket{x_1x_2}$$
+$$ V^k \ket{x_1x_2x_3} = \omega^{k(x_1\oplus x_2 \oplus x_3)}\ket{x_1x_2x_3}$$
+Therefore for $D$ in normal form we have
+$$ p_D(x) = a_0 + \sum_i a_i x_i + \sum_{i<j}b_{ij} (x_i \oplus x_j) + \sum_{i<j<k}c_{ijk} (x_i \oplus x_j \oplus x_k)$$
+
+\end{frame}
+
+\begin{frame}{Uniqueness}
+Suppose $D$ and $D'$ are distinct diagonal normal forms, then by construction $p_D(x) \neq p_{D'}(x)$ as polynomials. However this does not mean that $\exists y \in \mathbb{Z}_2^n$ s.t. $p_D(y) \neq p_{D'}(y)$.\\
+
+Counterexample: $4x_1 + 4x_2 + 4(x_1 \oplus x_2) = 0$ mod $8$ for any $x_1, x_2 \in \mathbb{Z}_2$\\
+
+To show there exists such a $y$ need a technical lemma: construct a multilinear polynomial $q : \mathbb{Z}_8^n \rightarrow \mathbb{Z}_8$ such that $p_D(y)- p_{D'}(y) = q(y)$ $\forall y \in \mathbb{Z}_2^n$.
+
+Do this by translating from mod $2$ to mod $8$:
+$$ x_i \oplus x_j = x_i + x_j -2x_ix_j $$
+$$ x_i \oplus x_j \oplus x_k = x_i + x_j + x_k -2x_ix_j \dots$$
+
+Then $p_D(x) - p_{D'}(x) \neq 0$ $\implies q(x) \neq 0$, we pick a non-zero term $d x_{i_1} \dots x_{i_k}$ in $q(x)$ then letting $y$ be the vector with $1$'s in $i_j$th positions and zero everywhere else we obtain $q(y) = d \neq 0$ and so $D\ket{y} \neq D' \ket{y}$.
+\end{frame}
+
 \section{Open questions}
 
 
 \end{document}
-
