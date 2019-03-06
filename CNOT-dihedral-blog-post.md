@@ -1,8 +1,11 @@
 # A Finite Presentation of CNOT-Dihedral Operators
+<!-- ideas for the title: Normalising quantum circuits / Towards simplification of quantum circuits -->
 
 We start the [Applied Category Theory Seminar](http://www.appliedcategorytheory.org/adjoint-school-act-2019/) with a discussion of the paper *A Finite Prsesentation of CNOT-Dihedral Operators* by Matthew Amy, Jianxin Chen and Niel J. Ross.
 
 ## Introduction
+
+When trying to understand a new field, subject or theory, it is often useful to view it from as many angles as possible. In mathematics, this involves studying various representations of an object. The result of the paper, existence and uniqueness of a normal form for a fragment of quantum computation, was obtained by the authors observing an interesting interplay between two languages: on one hand we have the representation of quantum gates as circuits in a symmetric monoidal category (which is moreover a groupoid in this case), and on the other hand we can view the diagonal gates as `phase polynomials'. In this blog post, we add a third language to that, the ZX-calculus. This also serves the purpose of putting the work done in the paper into a broader contex, as the ZX-calculus is already implicit in the monoidal circuit representation; indeed, all the relations that hold for the gates in the paper are derivable in the ZX-calculus.
 
 Algebraic theory of quantum circuits: logical vs reversible gates.
 Logical gates (linear maps) have been axiomatised in the ZX and ZW calculi, these form compact closed monoidal categories.

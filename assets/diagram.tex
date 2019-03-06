@@ -1,0 +1,28 @@
+%\documentclass[12pt,a4paper]{article}
+\documentclass[preview]{standalone}
+%to convert to a .png file, first compile the pdf:
+%	pdflatex file.tex
+%then convert:
+%	convert -density 300 file.pdf -quality 90 file.png
+%or:
+%	convert -density 600x600 file.pdf -quality 90 -resize 1080x800 file.png
+
+\usepackage[english]{babel}
+%\usepackage[utf8x]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{enumitem}
+
+\usepackage{tikzit}
+\input{ZX-CNOT.tikzstyles}
+
+\usepackage[2cell,v2]{xy} %for Category Theory
+\usepackage{yfonts} %for Fraktur font
+
+\begin{document}
+\makebox{
+\tikzfig{R13}
+}
+\end{document}
