@@ -1,8 +1,8 @@
 # A Finite Presentation of CNOT-Dihedral Operators
 <!-- ideas for the title: Normalising quantum circuits / Towards simplification of quantum circuits -->
-*guest post by [Giovanni De Felice](author1’s url) and [Leo Lobski](author2’s website)
+*guest post by [Giovanni De Felice](author1’s url) and [Leo Lobski](author2’s website)*
 
-We begin the [Applied Category Theory School](http://www.appliedcategorytheory.org/adjoint-school-act-2019/) with a discussion inspired by the paper [A Finite Presentation of CNOT-Dihedral Operators](https://arxiv.org/abs/1701.00140) by Matthew Amy, Jianxin Chen and Niel J. Ross. The result of the paper, existence and uniqueness of a normal form for a fragment of quantum computation, was obtained by the authors observing an interesting interplay between two languages: on one hand we have the representation of quantum gates as circuits in a symmetric monoidal category (which is moreover a groupoid in this case), and on the other hand we can view the diagonal gates as `phase polynomials'. When trying to understand a new field, subject or theory, it is often useful to view it from as many angles as possible. In mathematics, this involves studying various representations of an object. In this blog post, we thus add a third language to the ones introduced in the paper, the ZX-calculus. This, inter alia, serves the purpose of putting the work done in the paper into a broader context, as the ZX-calculus is already implicit in the monoidal circuit representation; indeed, all the relations that hold for the gates in the paper are derivable in the ZX-calculus.
+We begin the [Applied Category Theory School](http://www.appliedcategorytheory.org/adjoint-school-act-2019/) with a discussion inspired by the paper [A Finite Presentation of CNOT-Dihedral Operators](https://arxiv.org/abs/1701.00140) by Matthew Amy, Jianxin Chen and Niel J. Ross. The result of the paper, existence and uniqueness of a normal form for a fragment of quantum computation, was obtained by the authors observing an interesting interplay between two languages: on one hand we have the representation of quantum gates as circuits in a symmetric monoidal category (which is moreover a groupoid in this case), and on the other hand we can view the diagonal gates as 'phase polynomials'. When trying to understand a new field, subject or theory, it is often useful to view it from as many angles as possible. In mathematics, this involves studying various representations of an object. In this blog post, we thus add a third language to the ones introduced in the paper, the ZX-calculus. This, inter alia, serves the purpose of putting the work done in the paper into a broader context, as the ZX-calculus is already implicit in the monoidal circuit representation; indeed, all the relations that hold for the gates in the paper are derivable in the ZX-calculus.
 
 ## Introduction
 
@@ -27,7 +27,7 @@ The paper proves existence and uniqueness of a normal for the CNOT-dihedral oper
 <img width = "100" src = "https://raw.githubusercontent.com/leolobski/CNOT-dihedral/master/assets/CNOT-gates.png"
 alt = ""/>
 
-An important step is the observation that the operators can be split into two classes: diagonal gates and affine gates. The diagonal gates have a diagonal matrix representations, while the affine ones are affine transformations of the basis states. The gates $X$, $CNOT$ and $SWAP$ are affine, while $\omega$, $T$, $U$ and $V$ are diagonal. Those CNOT-dihedral circuits that only contain affine gates are called affine circuits, and correspondingly for diagonal circuits.
+An important step is the observation that the operators can be split into two classes: diagonal gates and affine gates. The diagonal gates have a diagonal matrix representations, while the affine ones are affine transformations of the basis states. The gates $X$, $CNOT$ and $SWAP$ are affine, while $\omega$, $T$, $U$ and $V$ are diagonal. Those CNOT-dihedral circuits that only conṭain affine gates are called affine circuits, and correspondingly for diagonal circuits.
 
 The gates are subject to the following relations. [Amy, Chen and Ross. p.87].
 
@@ -52,7 +52,7 @@ The diagonal normal form they provide is given by an ordering of the diagonal ga
 
 In order to get an intuition for the presentation given in the paper, we make a short digression to briefly introduce some of the ZX-calculus rules. This will allow us to understand the rules exposed in the paper as direct consequences of the underlying rules for logical gates (linear maps) modelled with the ZX-calculus. It will also highlight the rules which are not directly derivable from ZX, which we will see come from the phase polynomial formalism.
 
-The ZX calculus is based on (strongly) complementary bases, roughly meaning that measurements cannot be performed simultaneously in both bases. The generators (processes or measurements) in these bases are denoted by dots of different colour, traditionally red and green, decorated with a phase. The generators (known as *spiders*)
+The ZX calculus is based on (strongly) complementary bases, roughly meaning that measurements cannot be performed simultaneously in both bases. The generators (processes or measurements) in these bases are denoted by dots of different colour, traditionally red and green, decorated with a phase. The generators (known as *spiders* or dagger special Frobenius algebras)
 
 <img width = "100" src = "https://raw.githubusercontent.com/leolobski/CNOT-dihedral/master/assets/ZX-generators.png"
 alt = ""/>
@@ -62,7 +62,7 @@ with $n$ inputs and $m$ outputs (the diagrams are read from left to right) corre
 <img width = "100" src = "https://raw.githubusercontent.com/leolobski/CNOT-dihedral/master/assets/linearmaps.png"
 alt = ""/>
 
-where $|\plusminus\rangle = \frac{1}{\sqrt 2}(|0\rangle \plusminus |1\rangle)$ and $\alpha\in(-\pi,\pi]$ (see e.g. [Backens](https://arxiv.org/abs/1307.7025)). The rule governing the interaction between generators of the same colour is the *spider fusion law*, which states that spiders of the same colour can fuse into each other and their phases add up (modulo $2\pi$).
+where $|\plusminus\rangle = \frac{1}{\sqrt 2}(|0\rangle \plusminus |1\rangle)$ and $\alpha\in(-\pi,\pi]$ (see e.g. [Backens](https://arxiv.org/abs/1307.7025)). The rule governing the interaction between generators of the same colour is the *spider fusion law* (a consequence of the axioms of dagger special Frobenius algebras), which states that spiders of the same colour can fuse into each other and their phases add up (modulo $2\pi$).
 
 The basic rules encoding strong complementarity are the bialgebra and Hopf laws.
 
@@ -85,7 +85,7 @@ Most of the relations $R_1$ to $R_13$ can be derived using the spider fusion law
 
 ## Phase polynomials
 
-The phase polynomial representation of diagonal gates.
+The phase polynomial representation of diagonal gates.̣̣
 
 reading the phase polynomial from a circuit: understanding rule 9.
 
@@ -99,5 +99,3 @@ Degree reductions and uniqueness.
 alt = ""/>
 
 ## Future work
-
-
