@@ -2,19 +2,27 @@
 <!-- ideas for the title: Normalising quantum circuits / Towards simplification of quantum circuits -->
 *guest post by [Giovanni de Felice](author1&#x2019;s url) and [Leo Lobski](author2&#x2019;s website)*
 
-We begin the [Applied Category Theory School](http://www.appliedcategorytheory.org/adjoint-school-act-2019/) with a discussion inspired by the paper [A Finite Presentation of CNOT-Dihedral Operators](https://arxiv.org/abs/1701.00140) by Matthew Amy, Jianxin Chen and Niel J. Ross. The result of the paper, existence and uniqueness of a normal form for a fragment of quantum computation, was obtained by the authors by observing an interesting interplay between two languages: on one hand we have the representation of quantum gates as circuits in a symmetric monoidal category (which is moreover a groupoid in this case), and on the other hand we can view the diagonal gates as 'phase polynomials'. When trying to understand a new field, subject or theory, it is often useful to view it from as many angles as possible. In mathematics, this involves studying various representations of an object. In this blog post, we thus add a third language to the ones introduced in the paper, the ZX-calculus. This, inter alia, serves the purpose of putting the work done in the paper into a broader context, as the ZX-calculus is already implicit in the monoidal circuit representation; indeed, all the relations that hold for the gates in the paper are derivable in the ZX-calculus.
+We begin the [Applied Category Theory School](http://www.appliedcategorytheory.org/adjoint-school-act-2019/) with a discussion inspired by the paper [A Finite Presentation of CNOT-Dihedral Operators](https://arxiv.org/abs/1701.00140) by Matthew Amy, Jianxin Chen and Niel J. Ross. The result of the paper, existence and uniqueness of a normal form for a fragment of quantum computation, was obtained by the authors by observing an interesting interplay between two languages: the representation of unitary quantum gates as circuits in a symmetric monoidal groupoid, and their description in terms of 'phase polynomials'.
+<!-- When trying to understand a new field, subject or theory, it is often useful to view it from as many angles as possible. In mathematics, this involves studying various representations of an object.-->
+
+In this blog post, we add a third language to the ones introduced in the paper, the ZX-calculus. This, inter alia, serves the purpose of putting the work done in the paper into a broader context.
+<!--as the ZX-calculus is already implicit in the monoidal circuit representation; indeed, all the relations that hold for the gates in the paper are derivable in the ZX-calculus.-->
+On the one hand, we use the ZX calculus to develop an intuition for the relations between unitary gates exposed in the paper, on the other hand we discuss how the phase polynomial formalism can be imported into the ZX calculus to obtain rewrite strategies for circuit optimization.
 
 ## Introduction
 
-Quantum computation aims to use properties unique to quantum mechanical systems for designing processes and algorithms which would be either hard or impossible for a classical computer. To reason about quantum computation, it is useful to consider *circuit diagrams*. These consist of two basic components. Each line of the circuit diagram represents a *qubit*, which is just a normalised state in a complex Hilbert space. It is useful to think of qubits as points on the [Bloch sphere](https://en.wikipedia.org/wiki/Bloch_sphere). Lines of a circuit diagram connect to boxes, which represent *operations* that can be done on qubits. These are all maps which maps points on the Bloch sphere to points on the Bloch sphere, which is to say all the unitaries.
+Quantum computer science studies how to use the properties of quantum mechanical systems for designing algorithms which outperform classical computers.
+To reason about quantum computation, it is useful to represent algorithms as *circuit diagrams*. These consist of two basic components. Each wire of the circuit diagram represents a *qubit*, whose states are (normalised) vectors in a two-dimensional complex Hilbert space, i.e. points on the [Bloch sphere](https://en.wikipedia.org/wiki/Bloch_sphere). Wires are connected to boxes, which represent *operations* that can be performed on qubits. These are unitary linear maps, i.e. reversible maps which send points on the Bloch sphere to points on the Bloch sphere.
 
-Since quantum circuits can be composed both `horizontally' (do one process after another) and `vertically' (do operations on multiple qubits at the same time), the language of monoidal categories captures their essence. More than that, graphical languages mimicking the rules of monoidal categories can be extremely helpful when proving results about the circuits.
+The standard circuit model for quantum computation is based on the universal set of unitaries $CNOT, X, T, H$, which generate the Clifford+T gate set. Universality here means that we can get arbitrarily close to any $n$-qubit unitary using polynomially many gates from this set.
 
-Algebraic theory of quantum circuits: logical vs reversible gates.
-Logical gates (linear maps) have been axiomatised in the ZX and ZW calculi, these form compact closed monoidal categories.
-An axiomatisation of unitary circuits, in the form of a symmetric monoidal groupoid, is a harder task. The circuit model for quantum computation is based on the universal set of unitaries $CNOT, X, T, H$, generating the Clifford+T gate set. Universality here means that we can get arbitrarily close to any $n$-qubit unitary using polynomially many gates.
+Our main question for this blog post is how to develop and exploit an algebraic theory of quantum circuits.
+Since quantum circuits can be composed both 'horizontally' (do one process after another) and 'vertically' (do operations on multiple qubits at the same time), monoidal categories are a suitable algebraic framework for this situation.
+<!--More than that, graphical languages mimicking the rules of monoidal categories can be extremely helpful when proving results about the circuits.-->
 
-Algebraic theories for restricted fragments:
+There have been two main approaches at developing a rewrite theory for quantum circuits. Relaxing the unitarity condition, we can consider arbitrary linear maps on qubits, which have been axiomatised in the ZX and ZW calculi, in terms of compact closed monoidal categories. The drawback of this approach is that it requires tools for **unitary circuit extraction**.
+A direct axiomatisation of unitary circuits, in the form of a symmetric monoidal groupoid, is a harder task because of the rigidity of such a representation. Moreover a finite axiomatisation of the full Clifford+T gate set is likely to be an impossible endeavour because of the inherent complexity of these circuits.
+For this reason, research has focused at axiomatising restricted fragments of the standard circuit model.
 
 * [Lafont](http://iml.univ-mrs.fr/~lafont/pub/circuits.pdf) (2003): affine circuits $CNOT, X$
 
@@ -33,7 +41,7 @@ The paper proves existence and uniqueness of a normal for the CNOT-dihedral oper
 <img width = "700" src = "https://raw.githubusercontent.com/leolobski/CNOT-dihedral/master/assets/CNOT-gates.png"
 alt = ""/>
 
-An important step is the observation that the operators can be split into two classes: diagonal gates and affine gates. The diagonal gates have a diagonal matrix representations, while the affine ones are affine transformations of the basis states. The gates $X$, $CNOT$ and $SWAP$ are affine, while $\omega$, $T$, $U$ and $V$ are diagonal. Those CNOT-dihedral circuits that only cont&#803;ain affine gates are called affine circuits, and correspondingly for diagonal circuits.
+An important step is the observation that the operators can be split into two classes: diagonal gates and affine gates. The diagonal gates have a diagonal matrix representations, while the affine ones are affine transformations of the basis states. The gates $X$, $CNOT$ and $SWAP$ are affine, while $\omega$, $T$, $U$ and $V$ are diagonal. Those CNOT-dihedral circuits that only contain affine gates are called affine circuits, and correspondingly for diagonal circuits.
 
 The gates are subject to the following relations. [Amy, Chen and Ross. p.87].
 
@@ -45,6 +53,8 @@ One central point to notice here are the *degree reduction* rules $R_1$, $R_4$, 
 The normal forms for affine and diagonal circuits turn out to be different, and the overall normal form is a combination of the two. In fact, existence and uniqueness of the normal form for affine gates was already proved by [Lafont](http://iml.univ-mrs.fr/~lafont/pub/circuits.pdf). Thus, what is proved in the present paper is that
 
 * if an affine gate is to the left of a diagonal gate, the circuit can be rewritten in such a way that the affine gate is the rightmost gate and all the remaining gates are diagonal (i.e. affine gates 'commute' past the diagonal ones),
+
+* diagonal circuits are generated by $\omega$, $T$, $U$ and $V$,
 
 * diagonal gates commute with diagonal gates,
 
@@ -59,9 +69,9 @@ The diagonal normal form they provide is given by an ordering of the diagonal ga
 
 ### From ZX to CNOT-Dihedral rules
 
-In order to get an intuition for the presentation given in the paper, we make a short digression to briefly introduce some of the ZX-calculus rules. This will allow us to understand the rules exposed in the paper as direct consequences of the underlying rules for logical gates (linear maps) modelled with the ZX-calculus. It will also highlight the rules which are not directly derivable from ZX, which we will see come from the phase polynomial formalism.
+In order to get an intuition for the presentation given in the paper, we make a short digression to briefly introduce some of the ZX-calculus rules. This will allow us to understand the relations exposed in the paper as direct consequences of the underlying rules for linear maps modeled with the ZX-calculus. It will also highlight the rules which are not directly derivable from ZX, which we will see come from the phase polynomial formalism.
 
-The ZX calculus is based on (strongly) complementary bases, roughly meaning that measurements cannot be performed simultaneously in both bases. The generators (processes or measurements) in these bases are denoted by dots of different colour, traditionally red and green, decorated with a phase. The generators (known as *spiders* or *dagger special Frobenius algebras*)
+The ZX calculus is a diagrammatic language for complex linear maps based on (strongly) complementary bases, roughly meaning that measurements cannot be performed simultaneously in both bases. The generators in these bases are denoted by dots of different colour, traditionally red and green, decorated with a phase. The generators (known as *spiders* or *dagger special Frobenius algebras*)
 
 <img width = "700" src = "https://raw.githubusercontent.com/leolobski/CNOT-dihedral/master/assets/ZX-generators.png"
 alt = ""/>
@@ -97,7 +107,7 @@ Most of the relations $R_1$ to $R_{13}$ can be derived using the spider fusion l
 
 ## Phase polynomials
 
-The action of any&#803; diagonal gate from the CNOT-dihedral fragment can be described as follows:
+The action of any diagonal gate from the CNOT-dihedral fragment can be described as follows:
 $$ D |x\rangle = \omega^{p_D(x)}|x\rangle, \quad p_D: \mathbb{Z}_2^n \rightarrow \mathbb{Z}_8 ,$$
 Where $p_D$ is a polynomial using mixed arithmetic:
 $$ p_D(x) = \sum_{i=1}^k a_i g_i(x) $$
@@ -129,7 +139,7 @@ which holds for any $x_i, x_j, x_k \in \mathbb{Z}_2$. We see that given the boun
 
 ## Diagonal gates in ZX: reducing $T$-count with the ZX-calculus.
 
-We have seen that phase polynomials are a useful technique for normalising diagonal circuits and distinguish between them. Degree reduction rules as and rule 13 in the paper are directly imported from this formalism. We have seen that most of those rules can be derived from th ZX calculus although rules 9 and 13 are very hard to show. In this section we import those rules in the ZX calculus, we introduce diagrammatic phase gadgets to represent the diagonal circuits and show that we can reduce T-count in ZX using the phase polynomial formalism.
+We have seen that phase polynomials are a useful technique for normalising diagonal circuits and distinguish between them. Degree reduction rules and rule 13 in the paper are directly imported from this formalism. We have seen that most of those rules can be derived from th ZX calculus although rules 9 and 13 are very hard to show. In this section we import those rules in the ZX calculus, we introduce diagrammatic phase gadgets to represent the diagonal circuits and show that we can reduce T-count in ZX using the phase polynomial formalism.
 
 
 <img width = "700" src = "https://raw.githubusercontent.com/leolobski/CNOT-dihedral/master/assets/R13.png"
