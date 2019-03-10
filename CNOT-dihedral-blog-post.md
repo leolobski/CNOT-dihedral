@@ -146,7 +146,7 @@ To do this let us consider the fragment of diagonal $ZX$ circuits, i.e. $ZX$ dia
 
 PICTURE
 
-As diagonal gates commute between themselves, we can think of any diagonal ZX circuit $D:n \rightarrow n$ as a hypergraph with $n$ nodes and labelled hyperedges for each phase gadget. Then $R_{13}$ can be generalised as follows: any diagonal ZX circuit on $4$ qubits (seen as a hypergraph) is equivalent to the hypergraph where the connections have been complemented and an additional phase gadget is connected to all 4 nodes.
+As diagonal gates commute between themselves, we can think of any diagonal ZX circuit $D:n \rightarrow n$ as a hypergraph with $n$ nodes and labelled hyperedges for each phase gadget. Then $R_{13}$ can be generalised roughly as follows: any diagonal ZX circuit on $4$ qubits (seen as a hypergraph) is equivalent to the hypergraph where the connections have been complemented and an additional phase gadget is connected to all 4 nodes. The labels on the phase gadgets should also be modified appropriately, but we don't go into detail here. 
 This yields the following rewrite procedure for reducing $T$-count in diagonal ZX circuits.
 Given an arbitrary diagonal ZX circuit $D: n \rightarrow n$, choose any quadruple of input qubits and consider the sub-hypergraph of hyperedges connected only to those 4 nodes. If the $T$-count of the sub-hypergraph is $k>7$, then we can use the generalised $R_{13}$ to complement all the connections and add a phase gadget connected to all 4 nodes. Then the $T$-count of the sub-hypergraph has been reduced from $k$ to $14-k+1$, reducing the overall $T$-count of $D$ by $k-8$.
 
