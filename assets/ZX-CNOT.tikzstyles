@@ -4,8 +4,8 @@
 % \tikzstyle{NAME}=[PROPERTY LIST]
 
 % Node styles
-\tikzstyle{X}=[fill=red, draw=black, shape=circle, scale=0.5]
-\tikzstyle{Z}=[fill={rgb,255: red,0; green,178; blue,0}, draw=black, shape=circle, scale=0.5]
+\tikzstyle{X}=[fill={rgb,255: red,193; green,0; blue,0}, draw=black, shape=circle, scale=0.5]
+\tikzstyle{Z}=[fill={rgb,255: red,166; green,255; blue,164}, draw=black, shape=circle, scale=0.5]
 \tikzstyle{U}=[fill={rgb,255: red,187; green,205; blue,255}, draw=black, shape=rectangle, scale=0.7]
 \tikzstyle{V}=[fill={rgb,255: red,175; green,255; blue,157}, draw=black, shape=rectangle, scale=0.7]
 \tikzstyle{T}=[fill={rgb,255: red,255; green,171; blue,173}, draw=black, shape=rectangle, scale=0.7]
