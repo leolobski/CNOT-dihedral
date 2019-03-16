@@ -1,0 +1,132 @@
+Miriam
+
+"a finite axiomatisation of the full Clifford+T gate set is unlikely to
+be possible" -- I'd be careful with claims like that: after all when the
+first ZX-incompleteness proof came out, people also thought there might
+be no finite completion and a few years later we realised that a single
+additional rule was enough (though, to be fair, this is due partly to
+relaxing the restriction on what it means to be a "finitely generated"
+rewrite rule after the proof that some non-linear rule is necessary).
+
+"Non-Clifford gates, such as the $T$-gate, are hard gates to implement
+in a lab" -- this is not quite true. The reason $T$-gates are considered
+difficult is because most quantum error-correcting codes allow
+straightforward fault-tolerant implementation of stabiliser gates but
+not $T$-gates (the latter need to be performed via magic state
+distillation & injection in order to be fault-tolerant, which massively
+increases the resource use). This is different to $T$ gates being
+generally hard to implement in the lab. The difficulty of implementing
+individual gates in the lab varies a lot depending on the type of
+quantum system being used, but if anything, it's usually two-qubit gates
+that are harder to achieve (which is why CNOT count reduction is also an
+area of research).
+
+$R_{13}$ is also a kind of degree-reduction rule -- it shows that the
+maximum degree of the 4-qubit equivalent of T/U/V is 0 since it can
+always be decomposed into gates on fewer qubits.
+
+Which version of the ZX-calculus are you using here? If you're talking
+about any universal version, the statement "All of these relations are
+derivable" is kind of trivial.
+
+(DONE)"The normal forms for affine and diagonal circuits turn out to be
+different" -- they are different classes of operators, how is it
+surprising that they have different normal forms?
+
+(DONE)"for a single qubit (n=m=1) the green spider correspond" is missing an
+"s" at the end
+
+Not sure whether the analogy between spider fusions and rotations is
+really good -- certainly it explains why phases add, but fusion of
+non-phased spiders is quite different to "fusion" of rotations. It might
+be worth separating the two concepts.
+
+Since $\omega$ is relevant, would it be worth using the scaled version
+of ZX?
+
+(DONE)"the coefficients in the expression above can be bound" should be "bounded".
+
+I would use a full name rather than just "Harny" in this kind of
+publication.
+
+(DONE)R13.png has overlapping nodes -- might be worth stretching the diagram
+vertically?
+
+(DONE)"Since the ZX-calculus for the Clifford+T gate set is known to be
+approximately universal for quantum computation" -- this makes it sound
+like approximate universality is a property of the ZX-calculus when
+really it's a property of the Clifford+T gate set that holds for
+circuits too.
+
+
+
+
+
+Hector
+
+(DONE)- Your missing character "<" is special in html and so isn't being rendered
+properly. I used "&lt;" for "<" and "&rt;" for ">" and it worked for me.
+Likewise use "\pm" instead of "\plusminus", and "\binom{4}{i}" instead of
+"\choose". This page:
+https://golem.ph.utexas.edu/~distler/blog/itex2MMLcommands.html has the allowed
+commands listed.
+
+(DONE)- The survey paper is being moved to
+https://github.com/zx-outreach/survey-paper/blob/master/ZXCalculusSurvey.pdf ,
+so it would be ideal if you could update that link (I'll update the link in the
+ACT forum)
+
+(DIDN'T WORK)- centering images is usually a page CSS task, and something you shouldn't be
+able to alter in markdown. That said you can add the style "
+  display: block;
+  margin-left: auto;
+  margin-right: auto;"
+to the image tag and it might be allowed through the posting system. If you
+find it doesn't show your images properly when it comes to submitting the blog
+post then try using the
+        ![Alt text](/path/to/img.jpg)
+markdown format instead.
+
+(DONE)- I tend to use colours of different lightnesses: Try putting the image through
+https://www.color-blindness.com/coblis-color-blindness-simulator/ and you'll
+see that currently the colours are indistinguishable for Protanopia and
+Deuteranopia.
+
+
+
+
+
+
+Daniel
+
+(OK)1) I'm not aware of any way to center the included images in this situation.  To check my sanity, I skimmed a few articles and saw only left justified images, so I think we can safely ignore that issue.
+
+(OK)2) I wasn't aware you already had the images loaded in your own github, so by all means you can just call them from there.  It's easier than switching all the paths to the ACT github.  
+
+(DONE)3) The first sentence under Definition 3.2 "An important step the normal..." I think you're missing a word here.
+
+(DONE)4) In the 2nd sentence of the paragraph following Def 3,2 you write "while the affine ones ..." Might as well call them affine gates instead of "ones".
+
+(DONE)5) "The gates are subject to the following relations. [Amy, Chen and Ross. p.87]." Which gates?  All of them?  I'd suggest being specific.
+
+(DONE; READ THROUGH AND MAKE SURE WE DON'T MIX UP GATES AND CIRCUITS AT OTHER POINTS)6) "A commonly studied unitary fragment of quantum circuits is known as *Clifford+T*, and it is generated by the gates..." Forgive my denseness, but what exactly is a gate? Is it different than a circuit? It seems like you're using them interchangeably from time to time, but I could be wrong. e.g. "The normal forms for affine and diagonal circuits turn out to be different, and the overall normal form is a combination of the two. In fact, existence and uniqueness of the normal form for affine gates was already proved by Lafont. Thus, what is proved in the present paper is that..."  Maybe you could spend a couple of words describing what a gate is for us non-quantum types.  
+
+(THIS IS FINE, we do not have in general that AD=DA, but AD=D'A, where D' a bunch of diagonal gates)7) "if an affine gate is to the left of a diagonal gate, the circuit can be rewritten in such a way that the affine gate is the rightmost gate and all the remaining gates are diagonal (i.e. affine gates ‘commute’ past the diagonal ones),"  Somehow the way you're writing this makes it seem like affine gate don't with diagonal gate on the nose.  Is there some price to pay with the diagonal gates?
+
+(DONE)8) "It then follows that any CNOT-dihedral circuit CC can be rearranged so that C=DAC = D A, where DD is a diagonal circuit and AA an affine one"  Can you say affine circuit instead of affine one?
+
+(DONE)9) you can replace "\plusminus" with "\pm"
+
+(DONE)10) "the green spider correspond to a rotation of the Bloch sphere". Slap an 's' at the end of 'correspond'
+
+(DONE, BUT a little awkward: (the power of a gate is just the number of times the gate is composed with itself))11) "One central point to notice here are the degree reduction rules R 1R_1, R 4R_4, R 7R_7, R 8R_8, R 9R_9 and R 10R_{10}, which yield an upper bound on the power of each gate in the normal form."  Did you mention what the power of a gate is?
+
+(DONE)12) Instead of < and >, in mathjax, you can write \lt and \gt
+
+(DONE, not running off the page after fixing the < isuuse!)13) Your displaymath equation direct summing x_1 though x_4 is running off the page.  You can break it up into two displymath environments.  I'm not sure if there is a mathjax version of the align environment, so don't worry about that. Just get the entire line on a single page
+
+(DONE)14) "14=∑ i=1 34choosei14= \sum_{i=1}^3{4 \choose i} " This isn't compiling very nicely. Perhaps \binom{4}{1} will work better.
+
+(DONE)15) "If the $T$-count of the sub-hypergraph is $k>7$," Another > you can replace with \gt
+
+(OK. Are you viewing it in comment preview? Then I believe the headings are not supposed to load.)16) One thing that is very confusing is that the headings aren't compiling on my end.  The text is there, but no formatting.  Did you have this issue?  As a last resort, we can always just use bold on the headings.  
