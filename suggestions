@@ -99,9 +99,9 @@ Deuteranopia.
 
 Daniel
 
-1) I'm not aware of any way to center the included images in this situation.  To check my sanity, I skimmed a few articles and saw only left justified images, so I think we can safely ignore that issue.
+(OK)1) I'm not aware of any way to center the included images in this situation.  To check my sanity, I skimmed a few articles and saw only left justified images, so I think we can safely ignore that issue.
 
-2) I wasn't aware you already had the images loaded in your own github, so by all means you can just call them from there.  It's easier than switching all the paths to the ACT github.  
+(OK)2) I wasn't aware you already had the images loaded in your own github, so by all means you can just call them from there.  It's easier than switching all the paths to the ACT github.  
 
 (DONE)3) The first sentence under Definition 3.2 "An important step the normal..." I think you're missing a word here.
 
@@ -123,10 +123,10 @@ Daniel
 
 (DONE)12) Instead of < and >, in mathjax, you can write \lt and \gt
 
-13) Your displaymath equation direct summing x_1 though x_4 is running off the page.  You can break it up into two displymath environments.  I'm not sure if there is a mathjax version of the align environment, so don't worry about that. Just get the entire line on a single page
+(DONE, not running off the page after fixing the < isuuse!)13) Your displaymath equation direct summing x_1 though x_4 is running off the page.  You can break it up into two displymath environments.  I'm not sure if there is a mathjax version of the align environment, so don't worry about that. Just get the entire line on a single page
 
 (DONE)14) "14=∑ i=1 34choosei14= \sum_{i=1}^3{4 \choose i} " This isn't compiling very nicely. Perhaps \binom{4}{1} will work better.
 
 (DONE)15) "If the $T$-count of the sub-hypergraph is $k>7$," Another > you can replace with \gt
 
-(Are you viewing it in comment preview? Then I believe the headings are not supposed to load.)16) One thing that is very confusing is that the headings aren't compiling on my end.  The text is there, but no formatting.  Did you have this issue?  As a last resort, we can always just use bold on the headings.  
+(OK. Are you viewing it in comment preview? Then I believe the headings are not supposed to load.)16) One thing that is very confusing is that the headings aren't compiling on my end.  The text is there, but no formatting.  Did you have this issue?  As a last resort, we can always just use bold on the headings.  
