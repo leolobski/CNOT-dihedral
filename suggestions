@@ -1,6 +1,6 @@
 Miriam
 
-"a finite axiomatisation of the full Clifford+T gate set is unlikely to
+(DONE)"a finite axiomatisation of the full Clifford+T gate set is unlikely to
 be possible" -- I'd be careful with claims like that: after all when the
 first ZX-incompleteness proof came out, people also thought there might
 be no finite completion and a few years later we realised that a single
@@ -8,7 +8,7 @@ additional rule was enough (though, to be fair, this is due partly to
 relaxing the restriction on what it means to be a "finitely generated"
 rewrite rule after the proof that some non-linear rule is necessary).
 
-"Non-Clifford gates, such as the $T$-gate, are hard gates to implement
+(DONE)"Non-Clifford gates, such as the $T$-gate, are hard gates to implement
 in a lab" -- this is not quite true. The reason $T$-gates are considered
 difficult is because most quantum error-correcting codes allow
 straightforward fault-tolerant implementation of stabiliser gates but
@@ -21,11 +21,11 @@ quantum system being used, but if anything, it's usually two-qubit gates
 that are harder to achieve (which is why CNOT count reduction is also an
 area of research).
 
-$R_{13}$ is also a kind of degree-reduction rule -- it shows that the
+(DONE)$R_{13}$ is also a kind of degree-reduction rule -- it shows that the
 maximum degree of the 4-qubit equivalent of T/U/V is 0 since it can
 always be decomposed into gates on fewer qubits.
 
-Which version of the ZX-calculus are you using here? If you're talking
+(DONE)Which version of the ZX-calculus are you using here? If you're talking
 about any universal version, the statement "All of these relations are
 derivable" is kind of trivial.
 
@@ -36,17 +36,17 @@ surprising that they have different normal forms?
 (DONE)"for a single qubit (n=m=1) the green spider correspond" is missing an
 "s" at the end
 
-Not sure whether the analogy between spider fusions and rotations is
+(ADDED A SENTENCE)Not sure whether the analogy between spider fusions and rotations is
 really good -- certainly it explains why phases add, but fusion of
 non-phased spiders is quite different to "fusion" of rotations. It might
 be worth separating the two concepts.
 
-Since $\omega$ is relevant, would it be worth using the scaled version
+(DONE)Since $\omega$ is relevant, would it be worth using the scaled version
 of ZX?
 
 (DONE)"the coefficients in the expression above can be bound" should be "bounded".
 
-I would use a full name rather than just "Harny" in this kind of
+(DONE)I would use a full name rather than just "Harny" in this kind of
 publication.
 
 (DONE)R13.png has overlapping nodes -- might be worth stretching the diagram
